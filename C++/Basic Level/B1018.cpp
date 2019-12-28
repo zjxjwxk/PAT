@@ -39,10 +39,8 @@ int main() {
             }
         }
     }
-    printf("%d %d %d", win1, n - win1 - win2, win2);
-    printf("\n");
-    printf("%d %d %d", win2, n - win1 - win2, win1);
-    printf("\n");
+    printf("%d %d %d\n", win1, n - win1 - win2, win2);
+    printf("%d %d %d\n", win2, n - win1 - win2, win1);
     int max_a = 0, max_b = 0;
     for (int i = 1; i < 3; i++) {
         if (win_count1[i] > win_count1[max_a]) {
