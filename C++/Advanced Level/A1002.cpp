@@ -27,7 +27,6 @@ int main() {
     for (int i = 1000; i >= 0; i--) {
         if (ans[i] != 0) {
             printf(" %d %.1lf", i, ans[i]);
-            count--;
         }
     }
     return 0;
