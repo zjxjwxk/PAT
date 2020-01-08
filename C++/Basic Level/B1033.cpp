@@ -18,7 +18,7 @@ int main() {
     char input[maxn];
     cin.getline(wrong, maxn);
     cin.getline(input, maxn);
-    bool hash_table[256] = {false};
+    bool hash_table[128] = {false};
     int len1 = strlen(wrong);
     int len2 = strlen(input);
     for (int i = 0; i < len1; i++) {
