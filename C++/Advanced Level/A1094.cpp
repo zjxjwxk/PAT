@@ -13,12 +13,8 @@ void DFS(int root, int level) {
         max_count = count[level];
         max_level = level;
     }
-    if (node[root].size() == 0) {
-        return;
-    } else {
-        for (int i = 0; i < node[root].size(); i++) {
-            DFS(node[root][i], level + 1);
-        }
+    for (int i = 0; i < node[root].size(); i++) {
+        DFS(node[root][i], level + 1);
     }
 }
 
