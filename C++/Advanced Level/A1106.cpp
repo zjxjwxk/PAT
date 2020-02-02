@@ -7,7 +7,7 @@ const int maxn = 100000;
 vector<int> node[maxn];
 
 int n, min_count;
-double p, r, min_price = 10000000000;
+double p, r, min_price = 1e10;
 
 void DFS(int root, double p) {
     if (node[root].size() == 0) {
