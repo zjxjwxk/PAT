@@ -3,7 +3,7 @@
 using namespace std;
 
 const int maxn = 500, INF = 100000000;
-int n, m, c1, c2, teams[maxn], G[maxn][maxn], t[maxn], d[maxn], num[maxn] = {0};
+int n, m, c1, c2, teams[maxn], G[maxn][maxn], t[maxn] = {0}, d[maxn], num[maxn] = {0};
 bool vis[maxn] = {false};
 
 void init() {
