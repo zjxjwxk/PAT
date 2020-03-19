@@ -1,63 +1,45 @@
 #include <cstdio>
+#include <cstring>
 
-char nums[10][5] = {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
-char unit[3][5] = {"Qian", "Bai", "Shi"};
-
-void printNum(int num, bool preFlag) {
-    int temp = 1000;
-    bool flag = false, ifPrint = false;
-    if (preFlag == true) {
-        printf(" ");
-    }
-    for (int i = 0; i < 4; i++) {
-        if (num / temp != 0) {
-            if (i > 0) {
-                if (ifPrint == true && flag == false) {
-                    printf(" ling ");
-                } else if (ifPrint == false && preFlag == true) {
-                    printf("ling ");
-                }
-            }
-            if (flag == true) {
-                printf(" ");
-            }
-            printf("%s", nums[num / temp]);
-            if (i != 3) {
-                printf(" %s", unit[i]);
-            }
-            flag = true;
-            ifPrint = true;
-        } else {
-            flag = false;
-        }
-        num %= temp;
-        temp /= 10;
-    }
-}
+char num[10][5] = {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
+char wei[5][5] = {"Shi", "Bai", "Qian", "Wan", "Yi"};
 
 int main() {
-    int n, a, b, c;
-    scanf("%d", &n);
-    if (n == 0) {
-        printf("ling");
-        return 0;
+    char str[11];
+    scanf("%s", str);
+    int len = strlen(str), left = 0, right = len - 1;
+    if (str[0] == '-') {
+        printf("Fu");
+        left++;
     }
-    if (n < 0) {
-        printf("Fu ");
-        n = -n;
+    while (right - 4 >= left) {
+        right -= 4;
     }
-    a = n / 100000000;
-    if (a != 0) {
-        printf("%s Yi", nums[a]);
-    }
-    b = n % 100000000 / 10000;
-    if (b != 0) {
-        printNum(b, a != 0);
-        printf(" Wan");
-    }
-    c = n % 10000;
-    if (c != 0) {
-        printNum(c, a != 0 || b != 0);
+    while (left < len) {
+        bool flag = false, isPrint = false;
+        while (left <= right) {
+            if (left > 0 && str[left] == '0') {
+                flag = true;
+            } else {
+                if (flag == true) {
+                    printf(" ling");
+                    flag = false;
+                }
+                if (left > 0) {
+                    printf(" ");
+                }
+                printf("%s", num[str[left] - '0']);
+                isPrint = true;
+                if (left != right) {
+                    printf(" %s", wei[right - left - 1]);
+                }
+            }
+            left++;
+        }
+        if (isPrint == true && right != len - 1) {
+            printf(" %s", wei[(len - 1 - right) / 4 + 2]);
+        }
+        right += 4;
     }
     return 0;
 }
