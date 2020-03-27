@@ -15,7 +15,7 @@ int main() {
         }
         hash_table[wrong[i]] = 1;
     }
-    cin.getline(input, maxn);
+    scanf("%s", input);
     len = strlen(input);
     for (int i = 0; i < len; i++) {
         if (input[i] >= 'A' && input[i] <= 'Z') {
