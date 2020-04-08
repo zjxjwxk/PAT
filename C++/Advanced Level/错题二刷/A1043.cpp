@@ -2,10 +2,8 @@
 #include <vector>
 using namespace std;
 
-const int maxn = 1000;
-int n, index = 0;
 vector<int> pre, treePre;
-bool isBST = true, isMirrBST = true, isRoot = true;
+bool isRoot = true;
 
 struct Node {
     int data;
@@ -66,8 +64,8 @@ void postOrder(Node *root) {
 }
 
 int main() {
+    int n, data;
     scanf("%d", &n);
-    int data;
     for (int i = 0; i < n; i++) {
         scanf("%d", &data);
         pre.push_back(data);
