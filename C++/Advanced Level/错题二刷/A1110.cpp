@@ -31,9 +31,9 @@ int main() {
     bool flag[maxn] = {false};
     scanf("%d", &n);
     for (int i = 0; i < n; i++) {
-        string str1, str2;
+        char str1[3], str2[3];
         int left, right;
-        cin >> str1 >> str2;
+        scanf("%s %s", str1, str2);
         if (str1[0] != '-') {
             left = stoi(str1);
             nodes[i].left = left;
